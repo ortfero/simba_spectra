@@ -48,8 +48,8 @@ namespace simba::types {
     md_flags2_set md_flags2;
     int32_t security_id;
     uint32_t rpt_seq;
-    md_update_action md_update_action;
-    md_entry_type md_entry_type;
+    enum md_update_action md_update_action;
+    enum md_entry_type md_entry_type;
 
     static constexpr size_t size = sizeof(md_entry_id)
       + sizeof(md_entry_px) + sizeof(md_entry_size) + sizeof(md_flags)
@@ -71,8 +71,8 @@ namespace simba::types {
     md_flags2_set md_flags2;
     int32_t security_id;
     uint32_t rpt_seq;
-    md_update_action md_update_action;
-    md_entry_type md_entry_type;
+    enum md_update_action md_update_action;
+    enum md_entry_type md_entry_type;
 
     static constexpr size_t size = sizeof(md_entry_id)
       + sizeof(md_entry_px) + sizeof(md_entry_size) + sizeof(last_px)
@@ -112,7 +112,7 @@ namespace simba::types {
       int64_t trade_id;
       md_flags_set md_flags;
       uint64_t md_flags2;
-      md_entry_type md_entry_type;
+      enum md_entry_type md_entry_type;
 
       static constexpr size_t size = sizeof(md_entry_id)
         + sizeof(transact_ts_nsec) + sizeof(md_entry_px)
