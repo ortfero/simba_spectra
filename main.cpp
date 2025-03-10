@@ -18,14 +18,14 @@ int main(int argc, char* argv[])
     using namespace simba;
 
     // open pcap file
-    auto maybe_pcap_file = pcap::file::open("C:/Users/ortfe/Github/simba_spectra/pcap/2023-10-10.1849-1906.pcap");
+    auto maybe_pcap_file = pcap::file::open(argv[1]);
     if (!maybe_pcap_file)
       return error_with(-1, "Unable to open pcap file: ", maybe_pcap_file.error().message());
     auto& pcap_file = *maybe_pcap_file;
 
     // create json file
     auto ec = std::error_code{};
-    auto maybe_json_file = buffered_file<>::create_always("C:/Users/ortfe/Github/simba_spectra/pcap/result.json", ec);
+    auto maybe_json_file = buffered_file<>::create_always(argv[2], ec);
     if (!maybe_json_file)
       return error_with(-1, "Unable to create json file: ", ec.message());
     auto& json_file = *maybe_json_file;
